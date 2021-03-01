@@ -1,0 +1,7 @@
+cavernas
+montanhas
+gerar o mapa com objetos
+
+semente geradora
+---------------------------
+história

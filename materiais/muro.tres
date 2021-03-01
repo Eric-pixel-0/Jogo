@@ -1,0 +1,8 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://texturas/Muro_2K_Color.jpg" type="Texture" id=2]
+
+[resource]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 0.2, 0.2, 0.2 )
+uv1_triplanar = true

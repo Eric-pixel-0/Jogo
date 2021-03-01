@@ -1,0 +1,363 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://fontes/Typography times.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/TelaInicial.gd" type="Script" id=2]
+[ext_resource path="res://interface/imagemBotaoConfiguracao.tres" type="StyleBox" id=3]
+[ext_resource path="res://scripts/botaoConfiguracoes.gd" type="Script" id=4]
+[ext_resource path="res://fontes/abobora.tres" type="DynamicFont" id=5]
+[ext_resource path="res://interface/fundoTransparente.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "aoPassarOMouse"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "aoSairComOMouse"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0 ]
+}
+
+[node name="TelaInicial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="configuracoes" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -35.9999
+margin_top = -36.0
+margin_right = -3.99994
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 16, 16 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+enabled_focus_mode = 0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="botaoGirar" type="AnimationPlayer" parent="configuracoes"]
+method_call_mode = 1
+anims/aoPassarOMouse = SubResource( 2 )
+anims/aoSairComOMouse = SubResource( 3 )
+
+[node name="MenuPrincipal" type="TabContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -310.0
+margin_top = -230.0
+margin_right = 280.0
+margin_bottom = 183.0
+custom_styles/tab_bg = ExtResource( 6 )
+custom_styles/panel = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jogar" type="Tabs" parent="MenuPrincipal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 48.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="PainelJogar" type="Panel" parent="MenuPrincipal/Jogar"]
+anchor_right = 0.695
+anchor_bottom = 1.0
+margin_right = -0.150024
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EntrarJogar" type="Button" parent="MenuPrincipal/Jogar"]
+anchor_left = 0.723
+anchor_right = 1.0
+anchor_bottom = 0.107
+margin_left = -0.110016
+margin_right = -3.0
+margin_bottom = 0.0149956
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0.960784, 0.105882, 0.0431373, 1 )
+custom_colors/font_color = Color( 1, 0.662745, 0.0235294, 1 )
+custom_colors/font_color_hover = Color( 0.945098, 0.996078, 0.027451, 1 )
+custom_colors/font_color_pressed = Color( 0.101961, 0.94902, 0.0509804, 1 )
+text = "Entrar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CriarJogar" type="Button" parent="MenuPrincipal/Jogar"]
+anchor_left = 0.723
+anchor_top = 0.224
+anchor_right = 0.995
+anchor_bottom = 0.332
+margin_left = -0.110016
+margin_top = 0.327988
+margin_right = -0.150024
+margin_bottom = -0.0120163
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Criar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ApagarJogar" type="Button" parent="MenuPrincipal/Jogar"]
+anchor_left = 0.723
+anchor_top = 0.456
+anchor_right = 0.995
+anchor_bottom = 0.563
+margin_left = -0.110016
+margin_top = 0.119995
+margin_right = -0.150024
+margin_bottom = 0.134995
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Apagar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Servidor" type="Tabs" parent="MenuPrincipal"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 48.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="PainelServidor" type="Panel" parent="MenuPrincipal/Servidor"]
+anchor_right = 0.695
+anchor_bottom = 1.0
+margin_right = -0.150024
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EntrarServidor" type="Button" parent="MenuPrincipal/Servidor"]
+anchor_left = 0.723
+anchor_right = 0.995
+anchor_bottom = 0.107
+margin_left = -0.110016
+margin_right = -0.150024
+margin_bottom = 0.0149956
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Entrar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CriarServidor" type="Button" parent="MenuPrincipal/Servidor"]
+anchor_left = 0.723
+anchor_top = 0.225
+anchor_right = 0.995
+anchor_bottom = 0.332
+margin_left = -0.110016
+margin_top = 0.125
+margin_right = -0.150024
+margin_bottom = 0.139992
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Criar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ApagarServidor" type="Button" parent="MenuPrincipal/Servidor"]
+anchor_left = 0.723
+anchor_top = 0.456
+anchor_right = 0.995
+anchor_bottom = 0.563
+margin_left = -0.110016
+margin_top = 0.119995
+margin_right = -0.150024
+margin_bottom = 0.134995
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Apagar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Configuracoes" type="Tabs" parent="MenuPrincipal"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 48.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="PainelConfGeral" type="Panel" parent="MenuPrincipal/Configuracoes"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.29236
+margin_right = -1.29236
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Linguagem" type="OptionButton" parent="MenuPrincipal/Configuracoes/PainelConfGeral"]
+margin_left = 17.0
+margin_top = 17.0
+margin_right = 196.0
+margin_bottom = 55.0
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Lingua"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dispositivo" type="OptionButton" parent="MenuPrincipal/Configuracoes/PainelConfGeral"]
+margin_left = 17.0
+margin_top = 65.0
+margin_right = 196.0
+margin_bottom = 103.0
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Dispositivo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Video" type="Button" parent="MenuPrincipal/Configuracoes/PainelConfGeral"]
+margin_left = 17.0
+margin_top = 114.0
+margin_right = 196.0
+margin_bottom = 152.0
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Video"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Audio" type="Button" parent="MenuPrincipal/Configuracoes/PainelConfGeral"]
+margin_left = 17.0
+margin_top = 163.0
+margin_right = 196.0
+margin_bottom = 201.0
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Audio"
+
+[node name="Controles" type="Button" parent="MenuPrincipal/Configuracoes/PainelConfGeral"]
+margin_left = 17.0
+margin_top = 211.0
+margin_right = 196.0
+margin_bottom = 249.0
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Controles"
+
+[node name="Acessibilidade" type="Button" parent="MenuPrincipal/Configuracoes/PainelConfGeral"]
+margin_left = 17.0
+margin_top = 260.0
+margin_right = 196.0
+margin_bottom = 298.0
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Acessibilidade"
+
+[node name="ConfiguraPorMundo" type="OptionButton" parent="MenuPrincipal/Configuracoes/PainelConfGeral"]
+margin_left = 17.0
+margin_top = 312.0
+margin_right = 196.0
+margin_bottom = 350.0
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 5 )
+text = "Mundo"
+
+[node name="generico" type="Panel" parent="MenuPrincipal/Configuracoes"]
+margin_left = 214.228
+margin_right = 568.228
+margin_bottom = 355.0
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sobre" type="Tabs" parent="MenuPrincipal"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 48.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="TextoCreditos" type="Label" parent="MenuPrincipal/Sobre"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -171.0
+margin_top = -22.0
+margin_right = 171.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 5 )
+text = "Desenvolvido por Eric Clauter:
+ericclauter@gmail.com"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="configuracoes" to="configuracoes" method="_on_configuracoes_mouse_entered"]
+[connection signal="mouse_exited" from="configuracoes" to="configuracoes" method="_on_configuracoes_mouse_exited"]
+[connection signal="pressed" from="configuracoes" to="." method="_on_configuracoes_pressed"]
+[connection signal="pressed" from="MenuPrincipal/Jogar/EntrarJogar" to="." method="_on_EntrarJogar_pressed"]

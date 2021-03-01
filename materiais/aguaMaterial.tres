@@ -1,0 +1,21 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[resource]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0, 0.952941, 1, 0.901961 )
+albedo_texture = SubResource( 2 )
+uv1_scale = Vector3( 20, 1, 10 )
+uv1_offset = Vector3( 0.402386, 0, 0 )
+uv1_triplanar = true
+proximity_fade_enable = true
+proximity_fade_distance = 1.0
+distance_fade_mode = 1
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 1.0

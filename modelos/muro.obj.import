@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/muro.obj-1fbba57443d7a5e418a85431dbd2749d.mesh"
+
+[deps]
+
+files=[ "res://.import/muro.obj-1fbba57443d7a5e418a85431dbd2749d.mesh" ]
+
+source_file="res://modelos/muro.obj"
+dest_files=[ "res://.import/muro.obj-1fbba57443d7a5e418a85431dbd2749d.mesh", "res://.import/muro.obj-1fbba57443d7a5e418a85431dbd2749d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

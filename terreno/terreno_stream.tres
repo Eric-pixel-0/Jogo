@@ -1,0 +1,8 @@
+[gd_resource type="VoxelGeneratorNoise2D" load_steps=2 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[resource]
+height_start = 0.0
+height_range = 50.0
+noise = SubResource( 1 )
